@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:skin="http://schemas.android.com/android/skin"
+    xmlns:wifi="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/wlan_item_paddingtop"
+    android:paddingLeft="@dimen/wlan_item_paddingleft"
+    android:paddingRight="@dimen/wlan_item_paddingleft"
+    android:paddingTop="@dimen/wlan_item_paddingtop">
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxEms="12"
+        android:singleLine="true"
+        android:text="wifi 001"
+        android:textColor="@color/text_default_color"
+        android:textSize="@dimen/default_text_size"
+        skin:enable="true" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/contact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/wlan_item_img_marginright"
+            android:text="已连接"
+            android:textColor="@color/defaultBlueColor"
+            android:textSize="@dimen/default_text_size"
+            android:visibility="invisible" />
+
+        <!--  <com.fusi.fishingalarm.ui.WifiSignal
+              android:id="@+id/signal"
+              android:layout_width="@dimen/wlan_item_img_width"
+              android:layout_height="@dimen/wlan_item_img_width"
+              android:layout_marginRight="@dimen/wlan_item_img_marginright"
+              wifi:signal="2"
+              skin:enable="true"></com.fusi.fishingalarm.ui.WifiSignal>-->
+        <ImageView
+            android:layout_width="@dimen/wlan_item_img_width"
+            android:layout_height="@dimen/wlan_item_img_width"
+            android:layout_marginRight="@dimen/wlan_item_img_marginright"
+            android:src="@drawable/selector_wifi"
+            android:padding="3dp"
+            android:scaleType="centerInside"
+            skin:enable="true" />
+
+        <ImageView
+            android:id="@+id/img_right"
+            android:layout_width="@dimen/wlan_item_img_width"
+            android:layout_height="@dimen/wlan_item_img_width"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/selector_night_right"
+            skin:enable="true" />
+    </LinearLayout>
+
+
+</RelativeLayout>

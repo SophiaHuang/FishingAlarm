@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dash="http://schemas.android.com/apk/res-auto"
+    xmlns:topTitle="http://schemas.android.com/apk/res-auto"
+    xmlns:skin="http://schemas.android.com/android/skin"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_finshing_alarm_bg"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    skin:enable="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <!--    <com.fusi.fishingalarm.ui.TopTitleLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            topTitle:hasLine="true"
+            topTitle:showTitle="@string/user_and_pwd" />-->
+        <LinearLayout
+            android:id="@+id/top"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/top_title_size"
+            android:background="@color/transparent"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="@dimen/top_title_size"
+                    android:layout_height="@dimen/top_title_size"
+                    android:padding="@dimen/top_title_padding"
+                    android:onClick="finish"
+                    android:src="@drawable/selector_night_top_back"
+                    android:scaleType="centerInside"
+                    skin:enable="true"
+                    />
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:padding="5dp"
+                    android:text="用户名及密码修改"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/title_text_size"
+                    skin:enable="true"
+                    />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/default_line_width"
+                android:background="@color/default_line_color"
+                android:visibility="visible"
+                skin:enable="true"/>
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/default_text_size"
+            android:textColor="@color/text_default_color"
+            android:gravity="center"
+            android:text="若原用户名为空，请重启硬件并连接钓鱼报警器WiFi"
+            android:padding="10dp"
+            skin:enable="true"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/user_and_pwd_paddingLeft"
+            android:paddingRight="@dimen/user_and_pwd_paddingLeft"
+            android:paddingTop="6dp">
+
+            <TextView
+                android:textColor="@color/text_default_color"
+                android:textSize="@dimen/default_text_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="原用户名"
+                skin:enable="true"/>
+
+            <TextView
+                android:id="@+id/user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_round_blue"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/default_text_size"
+                skin:enable="true" />
+
+            <TextView
+                android:id="@+id/tvPwd"
+                android:textColor="@color/text_default_color"
+                android:textSize="@dimen/default_text_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/user_and_pwd_margintop"
+                android:text="原密码"
+                skin:enable="true"/>
+
+            <EditText
+                android:id="@+id/pwd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_round_blue"
+                android:inputType="textPassword"
+                android:textColor="@color/white"
+                android:textSize="@dimen/default_text_size"
+                skin:enable="true" />
+
+            <!--虚线，margintop:17px-->
+            <com.fusi.fishingalarm.ui.DashedLine
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginBottom="@dimen/user_and_pwd_margintop"
+                android:layout_marginTop="@dimen/user_and_pwd_margintop"
+                dash:dashGap="3"
+                dash:dashWidth="4"
+                dash:lineColor="@color/LineGrayColor"
+                android:clickable="true"/>
+
+            <TextView
+                android:textColor="@color/text_default_color"
+                android:textSize="@dimen/default_text_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="新用户名"
+                skin:enable="true"/>
+
+            <EditText
+                android:id="@+id/new_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_round_blue"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/default_text_size"
+                skin:enable="true" />
+
+            <TextView
+                android:textColor="@color/text_default_color"
+                android:textSize="@dimen/default_text_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/user_and_pwd_margintop"
+                android:text="新密码"
+                skin:enable="true"/>
+
+            <EditText
+                android:id="@+id/new_pwd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_round_blue"
+                android:inputType="textPassword"
+                android:textColor="@color/white"
+                android:textSize="@dimen/default_text_size"
+                skin:enable="true" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/user_and_pwd_margintop">
+
+                <TextView
+                    android:id="@+id/cancel"
+                    android:textColor="@color/text_default_color"
+                    android:textSize="@dimen/default_text_size"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:background="@drawable/selector_bg_wifi_button"
+                    android:gravity="center"
+                    android:onClick="cancel"
+                    android:paddingBottom="@dimen/diaglog_button_paddingtop"
+                    android:paddingTop="@dimen/diaglog_button_paddingtop"
+                    android:text="取消"
+                    skin:enable="true"/>
+
+                <View
+                    android:layout_width="@dimen/default_line_width"
+                    android:layout_height="match_parent"
+                    android:background="@color/defaultBlueColor" />
+
+                <TextView
+                    android:id="@+id/ok"
+                    android:textColor="@color/text_default_color"
+                    android:textSize="@dimen/default_text_size"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:background="@drawable/selector_bg_wifi_button"
+                    android:onClick="doClick"
+                    android:paddingBottom="@dimen/diaglog_button_paddingtop"
+                    android:paddingTop="@dimen/diaglog_button_paddingtop"
+                    android:text="保存"
+                    skin:enable="true"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <include
+        android:id="@+id/alter_sucess"
+        layout="@layout/activity_alter_user_and_pwd_contact"
+        android:visibility="gone" />
+    <!-- 稍等 -->
+    <include
+        android:id="@+id/loading_layout"
+        layout="@layout/loading_layout"
+        android:visibility="gone" />
+</RelativeLayout>

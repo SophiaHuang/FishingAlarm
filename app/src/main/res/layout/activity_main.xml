@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:percent="http://schemas.android.com/apk/res-auto"
+    xmlns:skin="http://schemas.android.com/android/skin"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_finshing_alarm_bg"
+    android:fitsSystemWindows="true"
+    skin:enable="true">
+
+    <support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!--marginleft:12px,margintop:54px-->
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_finshing_alarm"
+            percent:layout_heightPercent="144.8051%w"
+            percent:layout_widthPercent="92.207792%" />
+
+        <TextView
+            android:id="@+id/alrm"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/bg_circle_white"
+            android:gravity="center"
+            android:text="@string/main_alarm"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:visibility="gone"
+            percent:layout_heightPercent="20.350649%w"
+            percent:layout_marginBottomPercent="60.090909%w"
+            percent:layout_widthPercent="20.350649%w" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="setUp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_set_up_white"
+            percent:layout_heightPercent="14.935065%w"
+            percent:layout_marginBottomPercent="13%w"
+            percent:layout_widthPercent="14.935065%w" />
+
+    </support.PercentRelativeLayout>
+
+
+</RelativeLayout>

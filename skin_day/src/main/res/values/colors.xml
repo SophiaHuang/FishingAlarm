@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <!--状态栏颜色-->
+    <color name="colorPrimaryDark">#bdbdbd</color>
+    <color name="colorAccent">#FF4081</color>
+    <!--text_default_color 50, 50, 50, 1 -->
+    <color name="text_default_color">#323232</color>
+    <color name="bg_setup_blue">#90ACC9</color>
+    <color name="transparent">#00000000</color>
+    <color name="progress_white">#000000</color>
+    <color name="default_line_color">#CCCCCB</color>
+    <color name="white">#000000</color>
+    <color name="defaultBlueColor">#21B9FC</color>
+    <color name="black">#FFFFFF</color>
+</resources>

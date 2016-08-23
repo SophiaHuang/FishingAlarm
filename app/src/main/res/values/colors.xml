@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="half_transparent">#8000</color>
+    <color name="transparent">#00000000</color>
+    <color name="black">#000</color>
+    <color name="white">#fff</color>
+    <color name="text_default_color">#fff</color>
+    <color name="red">#f00</color>
+    <color name="green">#0f0</color>
+    <color name="blue">#00f</color>
+    <color name="yellow">#ff0</color>
+    <color name="purple">#f0f</color>
+    <color name="cyan">#0ff</color>
+    <color name="gray">#3000</color>
+    <color name="LineGrayColor">#CCCCCC</color>
+    <color name="defaultBlueColor">#21B9FC</color>
+    <color name="mainInterfaceGreyBg">#EFEFF4</color>
+    <color name="mainInterfaceBlueText">#007AFF</color>
+    <color name="mainInterfaceGreyThickLine">#A7A7AA</color>
+    <color name="mainInterfaceGreyText">#6D6D72</color>
+    <color name="mainInterfaceGreyLine">#C8C7CC</color>
+    <color name="titleBg">#F7F7F7</color>
+    <color name="mainInterfacetextBlackSub">#1E1E1E</color>
+    <color name="parameterSettingGreyText">#8E8E93</color>
+    <color name="dialogTitle">#0D0D0D</color>
+    <color name="feedBackTextGreyColor">#C7C7CD</color>
+    <color name="feedBackLineGreyColor">#C7C8CC</color>
+    <!-- 光标颜色 -->
+    <color name="cursor_blue">#5F82F4</color>
+
+    <color name="colorPrimary">#3F51B5</color>
+    <!--状态栏颜色-->
+    <color name="colorPrimaryDark">#000</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="bg_main_night">#4D5DBA</color>
+    <color name="bg_setup_blue">#223C51</color>
+    <color name="default_line_color">#48413A</color>
+    <color name="half_white">#efff</color>
+    <color name="setup_white">#fff</color>
+
+    <color name="progress_white">#fff</color>
+    <color name="seekbar_bg">#4D4D4D</color>
+    <color name="seekbar_progress">#99FF00</color>
+    <color name="seekbar_thum">#00CCFF</color>
+    <color name="wifi_checked">#BAD1FC</color>
+
+</resources>

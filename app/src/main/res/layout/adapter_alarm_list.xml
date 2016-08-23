@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:skin="http://schemas.android.com/android/skin"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/wlan_item_paddingtop"
+    android:paddingLeft="@dimen/wlan_item_paddingleft"
+    android:paddingRight="@dimen/wlan_item_paddingleft"
+    android:paddingTop="@dimen/wlan_item_paddingtop">
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="主报警器"
+        android:textColor="@color/text_default_color"
+        android:textSize="@dimen/default_text_size"
+        skin:enable="true" />
+
+    <ImageView
+        android:id="@+id/checked"
+        android:layout_width="31.5dp"
+        android:layout_height="31.5dp"
+        android:layout_alignParentRight="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/selector_dot"
+        skin:enable="true" />
+
+
+</RelativeLayout>

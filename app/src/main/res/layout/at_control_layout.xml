@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#efefef" >
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="fill_parent"
+        android:layout_height="45.3dp"
+        android:background="#3399FF" >
+
+        <ImageView android:id="@+id/backBtn"
+             android:layout_width="30dp" 
+             android:layout_height="30dp" 
+             android:src="@drawable/icon_back" 
+             android:layout_centerVertical="true" 
+             android:layout_marginLeft="10dp"
+             android:onClick="doClick"
+             android:layout_alignParentLeft="true"/>
+        <TextView
+            android:id="@+id/hd_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="设备"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/atLabel"
+        android:layout_below="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:textColor="#000000"
+        android:text="AT+" />
+    <EditText
+        android:id="@+id/inputEt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/atLabel"
+        android:layout_below="@+id/header"
+        android:ems="10" >
+        <requestFocus />
+    </EditText>
+    
+    <Button
+        android:id="@+id/sendBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/inputEt"
+        android:layout_below="@+id/header"
+        android:layout_marginLeft="10dp"
+        android:onClick="doClick"
+        android:text="发送" />
+    
+    <Button
+        android:id="@+id/clearBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/inputEt"
+        android:layout_toRightOf="@+id/textView1"
+        android:onClick="doClick"
+        android:text="清屏" />
+    <Button
+        android:id="@+id/resetBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginLeft="31dp"
+        android:layout_below="@+id/inputEt"
+        android:layout_toRightOf="@+id/clearBtn"
+        android:onClick="doClick"
+        android:text="设备重启" />
+    
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/inputEt"
+        android:layout_marginLeft="10dp"
+        android:gravity="center"
+         android:layout_alignBottom="@+id/clearBtn"
+        android:textColor="#000000"
+        android:text="输出" />
+    
+    
+
+    <EditText
+        android:id="@+id/outEt"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:clickable="false"
+        android:editable="false"
+        android:focusable="false"
+        android:layout_marginTop="5dp" 
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:ems="10"
+        android:inputType="textMultiLine" />
+    
+    <!-- <TextView
+        android:id="@+id/versionName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:textColor="#938192" /> -->
+
+</RelativeLayout>

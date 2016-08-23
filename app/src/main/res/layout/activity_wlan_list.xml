@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:skin="http://schemas.android.com/android/skin"
+    xmlns:topTitle="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_finshing_alarm_bg"
+    android:fitsSystemWindows="true"
+    skin:enable="true">
+
+    <RelativeLayout
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+
+        >
+        <!--     <include layout="@layout/line_setup_line" />-->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/wlan_bottom_marginleft"
+            android:gravity="center"
+            android:onClick="scan"
+            android:paddingBottom="@dimen/wlan_bottom_paddingtop"
+            android:paddingLeft="@dimen/wlan_bottom_paddingleft"
+            android:paddingRight="@dimen/wlan_bottom_paddingleft"
+            android:paddingTop="@dimen/wlan_bottom_paddingtop">
+
+            <ImageView
+                android:layout_width="@dimen/wlan_bottom_img_width"
+                android:layout_height="@dimen/wlan_bottom_img_width"
+                android:layout_marginRight="@dimen/wlan_bottom_img_marginright"
+                android:scaleType="centerCrop"
+                android:src="@drawable/selector_night_scan"
+                skin:enable="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="扫描"
+                android:textColor="@color/text_color_selected"
+                android:textSize="@dimen/default_text_size"
+                skin:enable="true"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/wlan_bottom_marginleft"
+            android:gravity="center"
+            android:onClick="addNetworking"
+            android:paddingBottom="@dimen/wlan_bottom_paddingtop"
+            android:paddingLeft="@dimen/wlan_bottom_paddingleft"
+            android:paddingRight="@dimen/wlan_bottom_paddingleft"
+            android:paddingTop="@dimen/wlan_bottom_paddingtop">
+
+            <ImageView
+                android:layout_width="@dimen/wlan_bottom_img_width"
+                android:layout_height="@dimen/wlan_bottom_img_width"
+                android:layout_marginRight="@dimen/wlan_bottom_img_marginright"
+                android:scaleType="centerCrop"
+                android:src="@drawable/selector_night_add_network"
+                skin:enable="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="添加网络"
+                android:textColor="@color/text_color_selected"
+                android:textSize="@dimen/default_text_size"
+                skin:enable="true"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--  <com.fusi.fishingalarm.ui.TopTitleLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  topTitle:hasLine="true"
+                  topTitle:showTitle="WLAN" />-->
+            <LinearLayout
+                android:id="@+id/top"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/top_title_size"
+                android:background="@color/transparent"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/back"
+                        android:layout_width="@dimen/top_title_size"
+                        android:layout_height="@dimen/top_title_size"
+                        android:onClick="finish"
+                        android:padding="@dimen/top_title_padding"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/selector_night_top_back"
+                        skin:enable="true" />
+
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        android:padding="5dp"
+                        android:text="WLAN"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/title_text_size"
+                        skin:enable="true" />
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/default_line_width"
+                    android:background="@color/default_line_color"
+                    android:visibility="visible"
+                    skin:enable="true" />
+
+            </LinearLayout>
+
+            <com.fusi.fishingalarm.ui.CheckSwitchButton
+                android:id="@+id/switch_wifi"
+                android:layout_width="60dp"
+                android:layout_height="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="-20dp"
+                android:gravity="center" />
+        </RelativeLayout>
+
+
+        <ListView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@color/default_line_color"
+            android:dividerHeight="0.5dp"
+            skin:enable="true"  ></ListView>
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">钓鱼报警器</string>
+    <string name="welcome">Welcom!</string>
+    <string name="main_alarm">主报警器</string>
+    <string name="setup">设置</string>
+    <string name="vibrate_on">振动开启</string>
+    <string name="vibrate_off">振动关闭</string>
+    <string name="flashlight_on">闪光灯开启</string>
+    <string name="flashlight_off">闪光灯关闭</string>
+    <string name="day_mode">白天模式</string>
+    <string name="night_mode">夜间模式</string>
+    <string name="reset">恢复出厂设置</string>
+    <string name="sys_ring">系统铃声</string>
+    <string name="scan_strength">较强</string>
+    <string name="wlan_security">WPA2 PSK</string>
+    <string name="user_and_pwd">用户名及密码修改</string>
+    <string name="silent_alarm_summary">"静音"</string>
+    <string name="id_name">flysky  0</string>
+    <string name="alarm_ring">报警铃声</string>
+    <string name="alarm">主报警器</string>
+    <string name="alarm_sub">从报警器</string>
+    <string name="wifi_name">\"Li-Link\"</string>
+    <string name="wifi_ip">11.11.11.254</string>
+    <!--TextGrayColor RGBColor(152, 152, 152, 1)  -->
+    <color name="TextGrayColor">#989898</color>
+    <string name="copyrighter">lierda.com</string>
+    <string name="label_password">Password:</string>
+    <string name="label_show_password">show password</string>
+    <string name="btn_connect">connect</string>
+    <string name="btn_unsaved_device">unsaved device</string>
+    <string name="btn_save_to_server">save to server</string>
+</resources>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:topTitle="http://schemas.android.com/apk/res-auto"
+    xmlns:skin="http://schemas.android.com/android/skin"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_finshing_alarm_bg"
+    android:orientation="vertical"
+    skin:enable="true">
+
+  <!--  <com.fusi.fishingalarm.ui.TopTitleLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        topTitle:hasLine="true"
+        topTitle:showTitle="ID设置" />-->
+    <LinearLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_title_size"
+        android:background="@color/transparent"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="@dimen/top_title_size"
+                android:layout_height="@dimen/top_title_size"
+                android:padding="@dimen/top_title_padding"
+                android:onClick="finish"
+                android:scaleType="centerInside"
+                android:src="@drawable/selector_night_top_back"
+                skin:enable="true" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:padding="5dp"
+                android:text="ID设置"
+                android:textColor="@color/white"
+                android:textSize="@dimen/title_text_size"
+                skin:enable="true" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/default_line_width"
+            android:background="@color/default_line_color"
+            android:visibility="visible"
+            skin:enable="true" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/default_line_color"
+        android:dividerHeight="0.5dp"
+        skin:enable="true"  ></ListView>
+</LinearLayout>

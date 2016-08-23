@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TopTitle">
+        <attr name="showTitle" format="string"/>
+        <attr name="hasLine" format="boolean"/>
+    </declare-styleable>
+    <declare-styleable name="dashedline">
+        <attr name="lineColor" format="color" />
+        <attr name="dashWidth" format="integer" />
+        <attr name="dashGap" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="PercentLayout_Layout">
+        <attr name="layout_widthPercent" format="string" />
+        <attr name="layout_heightPercent" format="string" />
+        <attr name="layout_marginPercent" format="string" />
+        <attr name="layout_marginLeftPercent" format="string" />
+        <attr name="layout_marginTopPercent" format="string" />
+        <attr name="layout_marginRightPercent" format="string" />
+        <attr name="layout_marginBottomPercent" format="string" />
+        <attr name="layout_marginStartPercent" format="string" />
+        <attr name="layout_marginEndPercent" format="string" />
+        <attr name="layout_textSizePercent" format="string" />
+        <attr name="layout_maxWidthPercent" format="string" />
+        <attr name="layout_maxHeightPercent" format="string" />
+        <attr name="layout_minWidthPercent" format="string" />
+        <attr name="layout_minHeightPercent" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="WifiSignal">
+        <attr name="signal" format="integer"/>
+    </declare-styleable>
+    <declare-styleable name="Sensitiveness">
+        <attr name="sensitiveness" format="integer"/>
+    </declare-styleable>
+</resources>

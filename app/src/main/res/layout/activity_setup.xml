@@ -1,0 +1,696 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:percent="http://schemas.android.com/apk/res-auto"
+    xmlns:sensitive="http://schemas.android.com/apk/res-auto"
+    xmlns:skin="http://schemas.android.com/android/skin"
+    android:id="@+id/bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_finshing_alarm_bg"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    skin:enable="true">
+
+    <!--<com.fusi.fishingalarm.ui.TopTitleLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />-->
+
+    <LinearLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_title_size"
+        android:background="@color/transparent"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="@dimen/top_title_size"
+                android:layout_height="@dimen/top_title_size"
+                android:onClick="finish"
+                android:padding="@dimen/top_title_padding"
+                android:scaleType="centerInside"
+                android:src="@drawable/selector_night_top_back"
+                skin:enable="true" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:padding="5dp"
+                android:text="@string/setup"
+                android:textColor="@color/white"
+                android:textSize="@dimen/title_text_size"
+                skin:enable="true" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/default_line_width"
+            android:background="@color/default_line_color"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/top">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_setup_blue"
+                android:paddingBottom="@dimen/set_up_item_blue_paddingtop"
+                android:paddingLeft="@dimen/set_up_padding_left"
+                android:paddingTop="@dimen/set_up_item_blue_paddingtop"
+                android:text="系统设置"
+                android:textColor="@color/text_default_color"
+                android:textSize="@dimen/default_text_size"
+                skin:enable="true" />
+            <!--系统铃声大小-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingBottom="@dimen/set_up_item_paddingtop"
+                android:paddingLeft="@dimen/set_up_padding_left"
+                android:paddingRight="@dimen/set_up_padding_left"
+                android:paddingTop="@dimen/set_up_item_paddingtop">
+
+                <ImageView
+                    android:id="@+id/iv_unring"
+                    android:layout_width="@dimen/set_up_item_img_size"
+                    android:layout_height="@dimen/set_up_item_img_size"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_night_volume_no"
+                    skin:enable="true" />
+
+                <SeekBar
+                    android:id="@+id/sys_volume"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/iv_ring"
+                    android:layout_toRightOf="@+id/iv_unring"
+                    android:maxHeight="@dimen/seekbar_maxHeight"
+                    android:progressDrawable="@drawable/layer_list_seekbar"
+                    android:thumb="@drawable/selector_seekbar_thumb" />
+
+                <ImageView
+                    android:id="@+id/iv_ring"
+                    android:layout_width="@dimen/set_up_item_img_size"
+                    android:layout_height="@dimen/set_up_item_img_size"
+                    android:layout_alignParentRight="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_night_volume"
+                    skin:enable="true" />
+            </RelativeLayout>
+
+            <!--  <include layout="@layout/line_setup_line" />-->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/default_line_width"
+                android:background="@color/default_line_color"
+                skin:enable="true" />
+            <!--系统铃声-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:onClick="sysRing"
+                android:paddingBottom="@dimen/set_up_item_paddingtop"
+                android:paddingLeft="@dimen/set_up_padding_left"
+                android:paddingRight="@dimen/set_up_padding_left"
+                android:paddingTop="@dimen/set_up_item_paddingtop">
+
+                <ImageView
+                    android:id="@+id/iv_ring_kind"
+                    android:layout_width="@dimen/set_up_item_img_size"
+                    android:layout_height="@dimen/set_up_item_img_size"
+                    android:layout_marginRight="@dimen/set_up_item_middle_left"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_night_sys_rin"
+                    skin:enable="true" />
+
+                <TextView
+                    android:id="@+id/sys_ring"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/iv_ring_kind"
+                    android:text="系统铃声1"
+                    android:textColor="@color/text_default_color"
+                    android:textSize="@dimen/default_text_size"
+                    skin:enable="true" />
+                <!--w:37,h:68-->
+                <ImageView
+                    android:layout_width="@dimen/set_up_item_img_size"
+                    android:layout_height="@dimen/set_up_item_img_size"
+                    android:layout_alignParentRight="true"
+                    android:padding="@dimen/set_up_item_img_padding"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/selector_night_right"
+                    skin:enable="true" />
+            </RelativeLayout>
+
+            <!-- <include layout="@layout/line_setup_line" />-->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/default_line_width"
+                android:background="@color/default_line_color"
+                skin:enable="true" />
+            <!--系统铃声-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:onClick="wlanList">
+
+                <ImageView
+                    android:id="@+id/iv_wlan"
+
+                    android:layout_width="@dimen/set_up_item_img_size"
+                    android:layout_height="@dimen/set_up_item_img_size"
+                    android:layout_marginBottom="@dimen/set_up_item_paddingtop"
+                    android:layout_marginLeft="@dimen/set_up_padding_left"
+                    android:layout_marginRight="@dimen/set_up_item_middle_left"
+                    android:layout_marginTop="@dimen/set_up_item_paddingtop"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_night_wlan"
+                    skin:enable="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="@dimen/set_up_item_paddingtop"
+                    android:layout_marginTop="@dimen/set_up_item_paddingtop"
+                    android:layout_toRightOf="@+id/iv_wlan"
+                    android:text="WLAN"
+                    android:textColor="@color/text_default_color"
+                    android:textSize="@dimen/default_text_size"
+                    skin:enable="true" />
+
+                <TextView
+                    android:id="@+id/alterWifi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/switch_wlan"
+                    android:clickable="true"
+                    android:onClick="alterWifiInfo"
+                    android:paddingBottom="@dimen/set_up_item_paddingtop"
+                    android:paddingRight="14dp"
+                    android:paddingTop="@dimen/set_up_item_paddingtop"
+                    android:text="修改WiFi信息"
+                    android:textColor="@color/text_color_selected"
+                    android:textSize="14sp"
+                    android:visibility="visible"
+                    skin:enable="true" />
+
+
+                <TextView
+                    android:id="@+id/switch_wlan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="@dimen/set_up_item_paddingtop"
+                    android:layout_marginTop="@dimen/set_up_item_paddingtop"
+                    android:layout_toLeftOf="@+id/iv_full_wlan"
+                    android:text="开启"
+                    android:textColor="@color/text_default_color"
+                    android:textSize="@dimen/default_text_size"
+                    skin:enable="true" />
+
+                <ImageView
+                    android:id="@+id/iv_full_wlan"
+                    android:layout_width="@dimen/set_up_item_img_size"
+                    android:layout_height="@dimen/set_up_item_img_size"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="@dimen/set_up_item_paddingtop"
+                    android:layout_marginLeft="@dimen/set_up_item_middle_left"
+                    android:layout_marginRight="@dimen/set_up_padding_left"
+                    android:layout_marginTop="@dimen/set_up_item_paddingtop"
+                    android:padding="@dimen/set_up_item_img_padding"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/selector_night_right"
+                    skin:enable="true" />
+            </RelativeLayout>
+
+
+            <!--功能设置-->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_setup_blue"
+                android:gravity="center_vertical"
+                android:onClick="mainAlarm"
+                android:paddingBottom="@dimen/set_up_item_blue_paddingtop"
+                android:paddingLeft="@dimen/set_up_padding_left"
+                android:paddingRight="@dimen/set_up_padding_left"
+                android:paddingTop="@dimen/set_up_item_blue_paddingtop"
+                skin:enable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="功能设置"
+                    android:textColor="@color/text_default_color"
+                    android:textSize="@dimen/default_text_size"
+                    skin:enable="true" />
+
+                <TextView
+                    android:id="@+id/alarm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/iv_main_alarm"
+                    android:text="@string/alarm"
+                    android:textColor="@color/text_default_color"
+                    android:textSize="@dimen/default_text_size"
+                    skin:enable="true" />
+
+                <ImageView
+                    android:id="@+id/iv_main_alarm"
+                    android:layout_width="@dimen/set_up_item_img_size"
+                    android:layout_height="@dimen/set_up_item_img_size"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="@dimen/set_up_item_middle_left"
+                    android:padding="@dimen/set_up_item_img_padding"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/selector_night_right"
+                    skin:enable="true" />
+            </RelativeLayout>
+            <!--信号大小-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingBottom="@dimen/set_up_item_paddingtop"
+                android:paddingLeft="@dimen/set_up_padding_left"
+                android:paddingRight="@dimen/set_up_padding_left"
+                android:paddingTop="@dimen/set_up_item_paddingtop">
+
+
+                <ImageView
+                    android:id="@+id/iv_unsensitive"
+                    android:layout_width="@dimen/set_up_item_img_size"
+                    android:layout_height="@dimen/set_up_item_img_size"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/iv_unsensitive_less"
+                    skin:enable="true" />
+
+
+                <SeekBar
+                    android:id="@+id/setup_sensitive"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/iv_sensitive"
+                    android:layout_toRightOf="@+id/iv_unsensitive"
+                    android:max="10"
+                    android:maxHeight="@dimen/seekbar_maxHeight"
+                    android:progressDrawable="@drawable/layer_list_seekbar"
+                    android:thumb="@drawable/selector_seekbar_thumb" />
+
+                <ImageView
+                    android:id="@+id/iv_sensitive"
+                    android:layout_width="@dimen/set_up_item_img_size"
+                    android:layout_height="@dimen/set_up_item_img_size"
+                    android:layout_alignParentRight="true"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/iv_sensitive_full"
+                    skin:enable="true" />
+            </RelativeLayout>
+
+            <!--    <include layout="@layout/line_setup_line" />-->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/default_line_width"
+                android:background="@color/default_line_color"
+                skin:enable="true" />
+            <!--功能铃声大小-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingBottom="@dimen/set_up_item_paddingtop"
+                android:paddingLeft="@dimen/set_up_padding_left"
+                android:paddingRight="@dimen/set_up_padding_left"
+                android:paddingTop="@dimen/set_up_item_paddingtop">
+
+                <ImageView
+                    android:id="@+id/iv_funtion_unring"
+                    android:layout_width="@dimen/set_up_item_img_size"
+                    android:layout_height="@dimen/set_up_item_img_size"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_night_volume_no"
+                    skin:enable="true" />
+
+                <SeekBar
+                    android:id="@+id/alarm_volume"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/iv_funtion_ring"
+                    android:layout_toRightOf="@+id/iv_funtion_unring"
+                    android:max="10"
+                    android:maxHeight="@dimen/seekbar_maxHeight"
+                    android:progress="5"
+                    android:progressDrawable="@drawable/layer_list_seekbar"
+                    android:thumb="@drawable/selector_seekbar_thumb" />
+
+                <ImageView
+                    android:id="@+id/iv_funtion_ring"
+                    android:layout_width="@dimen/set_up_item_img_size"
+                    android:layout_height="@dimen/set_up_item_img_size"
+                    android:layout_alignParentRight="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_night_volume"
+                    skin:enable="true" />
+            </RelativeLayout>
+
+            <!--<include layout="@layout/line_setup_line" />-->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/default_line_width"
+                android:background="@color/default_line_color"
+                skin:enable="true" />
+            <!--报警铃声-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:onClick="alarmRing"
+                android:paddingBottom="@dimen/set_up_item_paddingtop"
+                android:paddingLeft="@dimen/set_up_padding_left"
+                android:paddingRight="@dimen/set_up_padding_left"
+                android:paddingTop="@dimen/set_up_item_paddingtop">
+
+                <ImageView
+                    android:id="@+id/iv_alarm_kind"
+                    android:layout_width="@dimen/set_up_item_img_size"
+                    android:layout_height="@dimen/set_up_item_img_size"
+                    android:layout_marginRight="@dimen/set_up_item_middle_left"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_night_sys_rin"
+                    skin:enable="true" />
+
+                <TextView
+                    android:id="@+id/alarm_ring"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/iv_alarm_kind"
+                    android:text="报警铃声1"
+                    android:textColor="@color/text_default_color"
+                    android:textSize="@dimen/default_text_size"
+                    skin:enable="true" />
+
+                <ImageView
+                    android:layout_width="@dimen/set_up_item_img_size"
+                    android:layout_height="@dimen/set_up_item_img_size"
+                    android:layout_alignParentRight="true"
+                    android:padding="@dimen/set_up_item_img_padding"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/selector_night_right"
+                    skin:enable="true" />
+            </RelativeLayout>
+
+            <!--<include layout="@layout/line_setup_line" />-->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/default_line_width"
+                android:background="@color/default_line_color"
+                skin:enable="true" />
+
+            <support.PercentLinearLayout
+                android:id="@+id/powerLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right|center_vertical"
+                android:paddingBottom="10dp"
+                android:paddingRight="20dp"
+                android:paddingTop="10dp"
+                android:visibility="visible">
+                <!-- <ImageView
+                     android:layout_width="80dp"
+                     android:layout_height="30dp"
+                     android:src="@color/white" />-->
+                <!--w:225,h:96-->
+                <support.PercentRelativeLayout
+                    android:layout_width="80dp"
+                    android:layout_height="30dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/img_night_battery"
+                        skin:enable="true" />
+
+                    <ProgressBar
+                        android:id="@+id/progress_bar"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerVertical="true"
+                        android:progressDrawable="@drawable/progress_bar_white_color"
+                        percent:layout_heightPercent="100%"
+                        percent:layout_marginBottomPercent="3.5%w"
+                        percent:layout_marginLeftPercent="10%w"
+                        percent:layout_marginTopPercent="3.8%w"
+                        percent:layout_widthPercent="71.2%w"
+                        skin:enable="true" />
+                </support.PercentRelativeLayout>
+
+                <TextView
+                    android:id="@+id/powerText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0%"
+                    android:textColor="@color/text_default_color"
+                    android:textSize="24sp"
+                    skin:enable="true" />
+            </support.PercentLinearLayout>
+            <!--从服务器id-->
+            <LinearLayout
+                android:id="@+id/idLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="idSetup"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="@dimen/set_up_item_paddingtop"
+                    android:paddingLeft="@dimen/set_up_padding_left"
+                    android:paddingRight="@dimen/set_up_padding_left"
+                    android:paddingTop="@dimen/set_up_item_paddingtop">
+
+                    <ImageView
+                        android:id="@+id/iv_id"
+                        android:layout_width="@dimen/set_up_item_img_size"
+                        android:layout_height="@dimen/set_up_item_img_size"
+                        android:layout_marginRight="@dimen/set_up_item_middle_left"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/img_night_id"
+                        skin:enable="true" />
+
+                    <TextView
+                        android:id="@+id/id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/iv_id"
+                        android:text="flysky 0001"
+                        android:textColor="@color/text_default_color"
+                        android:textSize="@dimen/default_text_size"
+                        skin:enable="true" />
+
+                    <ImageView
+                        android:layout_width="@dimen/set_up_item_img_size"
+                        android:layout_height="@dimen/set_up_item_img_size"
+                        android:layout_alignParentRight="true"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/selector_night_right"
+                        skin:enable="true" />
+                </RelativeLayout>
+
+                <!--<include layout="@layout/line_setup_line" />-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/default_line_width"
+                    android:background="@color/default_line_color"
+                    skin:enable="true" />
+            </LinearLayout>
+
+        </LinearLayout>
+        <!--底部设置-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="vibrate"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/set_up_bottom_padding_top"
+                android:paddingTop="@dimen/set_up_bottom_padding_top">
+
+                <ImageView
+                    android:id="@+id/im_vibrate"
+                    android:layout_width="@dimen/set_up_bottom_imge_size"
+                    android:layout_height="@dimen/set_up_bottom_imge_size"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/selector_night_vibrate_close"
+                    skin:enable="true" />
+
+                <TextView
+                    android:id="@+id/tv_vibrate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/set_up_bottom_text_top"
+                    android:gravity="center"
+                    android:text="@string/vibrate_off"
+                    android:textColor="@color/text_color_selected"
+                    android:textSize="12sp"
+                    skin:enable="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="flashlight"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/set_up_bottom_padding_top"
+                android:paddingTop="@dimen/set_up_bottom_padding_top">
+
+                <ImageView
+                    android:id="@+id/im_flashlight"
+                    android:layout_width="@dimen/set_up_bottom_imge_size"
+                    android:layout_height="@dimen/set_up_bottom_imge_size"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/selector_night_flashlight_close"
+                    skin:enable="true" />
+
+                <TextView
+                    android:id="@+id/tv_flashlight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/set_up_bottom_text_top"
+                    android:gravity="center"
+                    android:text="@string/flashlight_off"
+                    android:textColor="@color/text_color_selected"
+                    android:textSize="12sp"
+                    skin:enable="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="mode"
+                android:visibility="gone"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/set_up_bottom_padding_top"
+                android:paddingTop="@dimen/set_up_bottom_padding_top">
+
+                <ImageView
+                    android:id="@+id/im_mode"
+                    android:layout_width="@dimen/set_up_bottom_imge_size"
+                    android:layout_height="@dimen/set_up_bottom_imge_size"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/selector_night_night_mode"
+                    skin:enable="true" />
+
+                <TextView
+                    android:id="@+id/tv_night"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/set_up_bottom_text_top"
+                    android:gravity="center"
+                    android:text="@string/night_mode"
+                    android:textColor="@color/text_color_selected"
+                    android:textSize="12sp"
+                    skin:enable="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="reset"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/set_up_bottom_padding_top"
+                android:paddingTop="@dimen/set_up_bottom_padding_top">
+
+                <ImageView
+                    android:id="@+id/im_reset"
+                    android:layout_width="@dimen/set_up_bottom_imge_size"
+                    android:layout_height="@dimen/set_up_bottom_imge_size"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/selector_night_reset"
+                    skin:enable="true" />
+
+                <TextView
+                    android:id="@+id/tv_reset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/set_up_bottom_text_top"
+                    android:gravity="center"
+                    android:text="@string/reset"
+                    android:textColor="@color/text_color_selected"
+                    android:textSize="12sp"
+                    skin:enable="true" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        >
+
+        <support.PercentRelativeLayout
+            android:id="@+id/shell"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_alignParentBottom="true"
+            android:onClick="shelling"
+            percent:layout_heightPercent="60%h"></support.PercentRelativeLayout>
+    </support.PercentRelativeLayout>
+
+
+</RelativeLayout>

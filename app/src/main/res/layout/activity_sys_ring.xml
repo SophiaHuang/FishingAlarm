@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:topTitle="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_finshing_alarm_bg"
+    android:orientation="vertical">
+
+    <com.fusi.fishingalarm.ui.TopTitleLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        topTitle:showTitle="@string/sys_ring"
+        topTitle:hasLine="true"/>
+
+    <!--<ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/white"
+        android:dividerHeight="@dimen/default_line_width"></ListView>-->
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableRight="@android:drawable/btn_radio"
+            android:text="系统铃声1"
+            android:paddingBottom="@dimen/sys_ring_item_paddingtop"
+            android:paddingLeft="@dimen/sys_ring_item_paddingleft"
+            android:paddingRight="@dimen/sys_ring_item_paddingleft"
+            android:paddingTop="@dimen/sys_ring_item_paddingtop"/>
+        <include layout="@layout/line_setup_line" />
+    </RadioGroup>
+</LinearLayout>

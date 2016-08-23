@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.fusi.fishingalarm"
+    android:versionCode="1"
+    android:versionName="2.0.1">
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="22"
+        tools:overrideLibrary="solid.ren.skinlibrary" />
+
+
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.autofocus" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.WAKE_LOCK"></uses-permission>
+
+    <application
+        android:name=".UILApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/fishingalarm_logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.NoActionBar">
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${UMENG_CHANNEL_VALUE}" />
+
+        <activity
+            android:name=".activity.WelcomActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="fishingalarm://" />
+            </intent-filter>
+
+        </activity>
+        <activity
+            android:name=".activity.MainActivity"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.SetUpActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.SysRingActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.WlanListActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.AlterUserAndPwdActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.AlarmSetupActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.AlarmRingActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.IDSetupActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.SocketTestActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.BaseActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.lsd.atcmd.AtControlActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.lsd.atcmd.DeviceListActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.ConnectWifiActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".wifi.WifiConnActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <receiver android:name=".broadcast.NetworkChangeReceiver">
+            <intent-filter>
+                <action android:name="android.net.wifi.RSSI_CHANGED" />
+                <action android:name="android.net.wifi.STATE_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".broadcast.CashFishReceiver">
+            <intent-filter>
+                <action android:name="com.fusi.fishingalarm.cash.succ" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
