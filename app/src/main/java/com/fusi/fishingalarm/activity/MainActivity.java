@@ -108,12 +108,12 @@ public class MainActivity extends SkinBaseActivity {
         public void run() {
             // TODO Auto-generated method stub
             if (UILApplication.hasSucess && UILApplication.in != null) {
-                UILApplication.responseCount++;
-                Log.i(TAG, "run: UILApplication.responseCount:" + UILApplication.responseCount);
-                if (UILApplication.responseCount >= 30) {
-                    exceptionResetSocket();
-                    return;
-                }
+//                UILApplication.responseCount++;
+//                Log.i(TAG, "run: UILApplication.responseCount:" + UILApplication.responseCount);
+//                if (UILApplication.responseCount >= 30) {
+//                    exceptionResetSocket();
+//                    return;
+//                }
                 switch (UILApplication.commandCount) {
                     case 0:
                         try {
@@ -188,6 +188,7 @@ public class MainActivity extends SkinBaseActivity {
                     UILApplication.hasShowError = false;
                     break;
                 case CATCH_FISH:
+                    Log.i(TAG, "handleMessage:show text cashList.size():"+cashList.size());
                     if (cashList.size() > 0) {
                         alrm.setVisibility(View.VISIBLE);
                         if (ActivityCollector.activities.size() >= 1) {
@@ -215,6 +216,7 @@ public class MainActivity extends SkinBaseActivity {
                     }
                     break;
                 case FAIL:
+                    closeCashFishEffect();
                     ToastShow.showToastCenter(getBaseContext(), "抱歉，连接服务器异常");
                     UILApplication.hasShowError = true;
                     break;
@@ -567,6 +569,9 @@ public class MainActivity extends SkinBaseActivity {
             vibrator = (Vibrator) getSystemService(Service.VIBRATOR_SERVICE);
             vibrator.vibrate(effectDuration);
         }
+        //        显示文字
+        mHandler.sendEmptyMessage(CATCH_FISH);
+        cashFishRing();
         if (SharedPrefrenceUtils.containsKey(getBaseContext(), "has_flash")) {
             if (SharedPrefrenceUtils.getBoolean(getBaseContext(), "has_flash")) {// 如果已经设置了闪光
                 flashlight(null);
@@ -574,9 +579,8 @@ public class MainActivity extends SkinBaseActivity {
         } else {
             flashlight(null);
         }
-//        显示文字
-        mHandler.sendEmptyMessage(CATCH_FISH);
-        cashFishRing();
+
+
     }
 
     /*闪光灯*/
@@ -599,6 +603,8 @@ public class MainActivity extends SkinBaseActivity {
             parameter.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
             camera.setParameters(parameter);
         } catch (RuntimeException e) {
+            e.printStackTrace();
+            exceptionResetSocket();
             mHandler.sendEmptyMessage(OPEN_CAMERA_PERMISSIONS);
         }
 
@@ -649,14 +655,16 @@ public class MainActivity extends SkinBaseActivity {
 
     public void exceptionResetSocket() {
         UILApplication.errerCount++;
+        Log.i(TAG, "exceptionResetSocket: errerCount:"+UILApplication.errerCount+",hasShowError:"+UILApplication.hasShowError);
         if (!UILApplication.hasShowError && UILApplication.errerCount > 3) {
-            UILApplication.hasShowError = true;
             UILApplication.ISLOGIN = false;
             UILApplication.hasSucess = false;
             UILApplication.responseCount = 0;
             mHandler.sendEmptyMessage(FAIL);
             UILApplication.closeSocket();
             UILApplication.resetSocket();
+            //关闭中鱼闹铃资源
+            closeCashFishEffect();
         }
 
 
@@ -783,7 +791,6 @@ public class MainActivity extends SkinBaseActivity {
                     } else if (Arlarm == 0) {
                         AlarmOld = 0;
                         closeCashFishEffect();
-
                         UILApplication.hasCashFish = false;
                     }
                 }
