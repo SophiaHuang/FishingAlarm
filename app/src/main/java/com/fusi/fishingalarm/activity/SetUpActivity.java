@@ -1200,9 +1200,10 @@ public class SetUpActivity extends BaseActivity {
                     if (UILApplication.commandCount==11){
                         // 查询这里，code代表顺序号
                         if (snReceive == sn) {
+                            Log.i(TAG, "onReceive: sn:"+bundle.getInt("sn")+",alarm_ring:"+bundle.getInt("alarm_ring"));
                             Message msg = new Message();
                             msg.what = SUCESS_READ;
-                            AlarmSetupInfo alarmSetupInfo = new AlarmSetupInfo(bundle.getInt("sn"), bundle.getInt("sensitive"), bundle.getInt("alarm_voume"), bundle.getInt("alarm_ring"));
+                            AlarmSetupInfo alarmSetupInfo = new AlarmSetupInfo(bundle.getInt("sn"), bundle.getInt("sensitive"), bundle.getInt("alarm_voume"), bundle.getInt("alarm_ring")+1);
                             msg.obj = alarmSetupInfo;
                             mHandler.sendMessage(msg);
                             SharedPrefrenceUtils.setInt(SetUpActivity.this, "alarm_name", sn);

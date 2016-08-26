@@ -19,8 +19,12 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
 import android.widget.Toast;
+
+import com.fusi.fishingalarm.activity.MainActivity;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -59,12 +63,12 @@ public class UILApplication extends SkinBaseApplication {
     public static DataOutputStream out = null;
     public static DataInputStream in = null;
     //    是否连接钓鱼报警器 wifi
-    public static boolean hasConnectWifi = false;
+    public static volatile boolean hasConnectWifi = false;
     //    已经有服务器返回ready了
     public static boolean ISLOGIN = false;
     //成功连上socket
-    public static boolean hasSucess;
-    public static boolean hasShowError;
+    public static volatile boolean hasSucess;
+    public static volatile boolean hasShowError;
     public static int errerCount;
     //    默认吧
     public static int power = 80;
@@ -74,14 +78,14 @@ public class UILApplication extends SkinBaseApplication {
     public static boolean hasCashFish = false;
 
     //命令
-    public static int commandCount = 0;
+    public static volatile int commandCount = 0;
     //设置错误次数
-    public static int setErrorCount = 0;
+    public static volatile int setErrorCount = 0;
 
-    public static long hearTime = 50;
+    public static volatile long hearTime = 50;
     public static boolean hasWifiAlter = true;
 
-    public static int responseCount=0;
+    public static volatile int responseCount=0;
 
     public void onCreate() {
 
@@ -149,6 +153,7 @@ public class UILApplication extends SkinBaseApplication {
 //            }
 //        }.start();
 //    }
+
 
     public static void resetSocket() {
         while (isServerClose(socket)) {

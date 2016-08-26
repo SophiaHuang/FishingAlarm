@@ -108,12 +108,12 @@ public class MainActivity extends SkinBaseActivity {
         public void run() {
             // TODO Auto-generated method stub
             if (UILApplication.hasSucess && UILApplication.in != null) {
-//                UILApplication.responseCount++;
-//                Log.i(TAG, "run: UILApplication.responseCount:" + UILApplication.responseCount);
-//                if (UILApplication.responseCount >= 30) {
-//                    exceptionResetSocket();
-//                    return;
-//                }
+                UILApplication.responseCount++;
+                Log.i(TAG, "run: UILApplication.responseCount:" + UILApplication.responseCount);
+                if (UILApplication.responseCount >= 30&&!UILApplication.hasShowError) {
+                    exceptionResetSocketToResponse();
+                    return;
+                }
                 switch (UILApplication.commandCount) {
                     case 0:
                         try {
@@ -122,6 +122,7 @@ public class MainActivity extends SkinBaseActivity {
                             UILApplication.out.flush();
 
                         } catch (IOException e) {
+                            Log.i(TAG, "Function: to send 01 exceptionResetSocket");
                             exceptionResetSocket();
                             e.printStackTrace();
                         }
@@ -136,6 +137,7 @@ public class MainActivity extends SkinBaseActivity {
                             UILApplication.out.write(SumCheck(alarmCount));
                             UILApplication.out.flush();
                         } catch (IOException e) {
+                            Log.i(TAG, "Function: to send 02 exceptionResetSocket");
                             exceptionResetSocket();
                             e.printStackTrace();
                         }
@@ -147,6 +149,7 @@ public class MainActivity extends SkinBaseActivity {
                             UILApplication.out.write(SumCheck(alarmState));
                             UILApplication.out.flush();
                         } catch (IOException e) {
+                            Log.i(TAG, "Function: to send 03 exceptionResetSocket");
                             exceptionResetSocket();
                             e.printStackTrace();
                         }
@@ -157,6 +160,7 @@ public class MainActivity extends SkinBaseActivity {
                             UILApplication.out.write(SumCheck(bufNightMode));
                             UILApplication.out.flush();
                         } catch (IOException e) {
+                            Log.i(TAG, "Function: to send 0a exceptionResetSocket");
                             exceptionResetSocket();
                             e.printStackTrace();
                         }
@@ -168,6 +172,7 @@ public class MainActivity extends SkinBaseActivity {
                             UILApplication.out.write(SumCheck(bufPower));
                             UILApplication.out.flush();
                         } catch (IOException e) {
+                            Log.i(TAG, "Function: to send 07 exceptionResetSocket");
                             exceptionResetSocket();
                             e.printStackTrace();
                         }
@@ -590,7 +595,21 @@ public class MainActivity extends SkinBaseActivity {
             Toast.makeText(this, "当前设备不支持闪光灯!", Toast.LENGTH_LONG).show();
             return;
         }
+
+        //判断是否有打开相机权限
+      /*  PackageManager packageManager = getPackageManager();
+        int permission = packageManager.checkPermission("android.permission.CAMERA", "com.fusi.fishingalarm");
+        if(PackageManager.PERMISSION_GRANTED == permission){
+            Log.i(TAG, "flashlight: 有权限");
+            //有这个权限
+            openLight();
+        }else {
+            //没有这个权限
+            Log.i(TAG, "flashlight: 没有权限");
+        }*/
+
         openLight();
+
     }
 
     //打开闪光灯
@@ -603,6 +622,7 @@ public class MainActivity extends SkinBaseActivity {
             parameter.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
             camera.setParameters(parameter);
         } catch (RuntimeException e) {
+            Log.i(TAG, "openLight: RuntimeException");
             e.printStackTrace();
             exceptionResetSocket();
             mHandler.sendEmptyMessage(OPEN_CAMERA_PERMISSIONS);
@@ -663,11 +683,22 @@ public class MainActivity extends SkinBaseActivity {
             mHandler.sendEmptyMessage(FAIL);
             UILApplication.closeSocket();
             UILApplication.resetSocket();
-            //关闭中鱼闹铃资源
-            closeCashFishEffect();
+
         }
 
 
+    }
+    public void exceptionResetSocketToResponse() {
+        Log.i(TAG, "exceptionResetSocket: errerCount:"+UILApplication.errerCount+",hasShowError:"+UILApplication.hasShowError);
+//        if (!UILApplication.hasShowError) {
+            UILApplication.ISLOGIN = false;
+            UILApplication.hasSucess = false;
+            UILApplication.responseCount = 0;
+            mHandler.sendEmptyMessage(FAIL);
+            UILApplication.closeSocket();
+            UILApplication.resetSocket();
+
+//        }
     }
 
     //返回的处理
@@ -748,7 +779,6 @@ public class MainActivity extends SkinBaseActivity {
 //                Log.i(TAG, "Function: UILApplication.ALARM_COUNT:"+UILApplication.ALARM_COUNT);
                     UILApplication.commandCount = 2;
                 }
-
                 break;
             case 0x03:
                 //报警器状态
