@@ -424,7 +424,7 @@ public class MainActivity extends SkinBaseActivity {
         UILApplication.power = 0;
         UILApplication.hasDayMode = false;
         UILApplication.responseCount = 0;
-        SkinManager.getInstance().restoreDefaultTheme();
+//        SkinManager.getInstance().restoreDefaultTheme();
         super.onDestroy();
     }
 
